@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snap - Recycling Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Title Screen -->
+    <div id="title-screen" class="screen active">
+        <div class="title-content">
+            <h1 class="game-title">SNAP</h1>
+            <div class="recycle-logo">♻️</div>
+            <button id="play-button" class="circular-button">PLAY</button>
+        </div>
+    </div>
+
+    <!-- Game Screen -->
+    <div id="game-screen" class="screen">
+        <div class="game-header">
+            <div class="round-display">Round: <span id="current-round">1</span>/10</div>
+            <div class="score-display">Score: <span id="score">0</span></div>
+        </div>
+
+        <div class="game-content">
+            <!-- Card Container -->
+            <div id="card-container" class="card-container">
+                <div id="card" class="card">
+                    <img id="card-image" src="" alt="Recyclable item">
+                    <p id="card-label" class="card-label"></p>
+                </div>
+                
+                <!-- Result overlay (checkmark or X) -->
+                <div id="result-overlay" class="result-overlay hidden">
+                    <div id="result-icon" class="result-icon"></div>
+                </div>
+            </div>
+
+            <!-- Choice Buttons -->
+            <div id="choice-buttons" class="choice-buttons">
+                <button id="recyclable-btn" class="choice-button recyclable">
+                    ♻️<br>Recyclable
+                </button>
+                <button id="not-recyclable-btn" class="choice-button not-recyclable">
+                    🚫<br>Not Recyclable
+                </button>
+            </div>
+
+            <!-- Snap Button (hidden initially) -->
+            <div id="snap-button-container" class="snap-button-container hidden">
+                <button id="snap-button" class="circular-button snap-btn">
+                    <span class="snap-icon">👆</span>
+                    <span>SNAP!</span>
+                </button>
+            </div>
+
+            <!-- Hat at bottom -->
+            <div class="hat">
+                <div class="hat-top">🎩</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Results Screen -->
+    <div id="results-screen" class="screen">
+        <div class="results-content">
+            <div id="result-face" class="result-face">😊</div>
+            <h2 id="result-title" class="result-title">You Win!</h2>
+            <p id="result-message" class="result-message">
+                You scored <span id="final-score">0</span> out of 10!
+            </p>
+            <button id="play-again-button" class="circular-button">PLAY AGAIN</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
