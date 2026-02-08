@@ -6,40 +6,29 @@
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: #0a0e27;
+    /* Use a single solid gray background to reduce distraction */
+    background: #444444;
     min-height: 100vh;
     overflow: hidden;
     color: white;
 }
 
-/* Starfield Background */
-.stars, .stars2, .stars3 {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
+/* Reduce distractions and repaint flicker: disable animated starfield and floating elements */
+.stars, .stars2, .stars3, .floating-elements {
+    display: none !important;
+    animation: none !important;
+    background: none !important;
 }
 
-.stars {
-    background: transparent url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="2" height="2"><circle cx="1" cy="1" r="1" fill="white" opacity="0.8"/></svg>') repeat;
-    animation: starsMove 100s linear infinite;
-}
-
-.stars2 {
-    background: transparent url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="3" height="3"><circle cx="1.5" cy="1.5" r="1" fill="white" opacity="0.5"/></svg>') repeat;
-    animation: starsMove 150s linear infinite;
-}
-
-.stars3 {
-    background: transparent url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="4" height="4"><circle cx="2" cy="2" r="1.5" fill="white" opacity="0.3"/></svg>') repeat;
-    animation: starsMove 200s linear infinite;
-}
-
-@keyframes starsMove {
-    from { transform: translateY(0); }
-    to { transform: translateY(-2000px); }
+/* Disable heavy backdrop blurs where they can cause flicker on some browsers */
+.landing-description,
+.instruction-card,
+.stat-badge,
+.card,
+.result-overlay,
+.results-content {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
 }
 
 /* Screen Management */
@@ -381,7 +370,7 @@ body {
     justify-content: center;
     padding: 30px;
     transform: translateY(400px);
-    opacity: 0;
+    opacity: 100;
     overflow: hidden;
 }
 
@@ -518,9 +507,9 @@ body {
 /* Choice Buttons */
 .choice-buttons {
     display: flex;
-    gap: 60px;
+    gap: 500px;
     position: absolute;
-    bottom: 100px;
+    bottom: 350px;
     z-index: 3;
 }
 
@@ -604,7 +593,7 @@ body {
 /* Snap Button */
 .snap-button-container {
     position: absolute;
-    bottom: 120px;
+    bottom: 340px;
     z-index: 3;
 }
 
@@ -683,7 +672,7 @@ body {
 /* Hat */
 .hat {
     position: absolute;
-    bottom: 30px;
+    bottom: 0px;
     left: 50%;
     transform: translateX(-50%);
     z-index: 1;
@@ -704,7 +693,7 @@ body {
 }
 
 .hat-body {
-    font-size: 12rem;
+    font-size: 30rem;
     filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.5));
     transform: rotate(180deg);
 }
