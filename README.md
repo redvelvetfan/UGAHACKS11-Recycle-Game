@@ -1,150 +1,315 @@
-# Snap - Recycling Game
+# Snap! - Recycling Education Game 
 
-A fun, educational web game that teaches players about recycling!
+An interactive web-based game that teaches players about recycling through an engaging card-sorting experience.
 
-## 🎮 How to Use
+##  Play the Game
 
-1. Open `snap-game.html` in any web browser to play the game
-2. All files must be in the same folder for the game to work properly
+**Live Demo:** [https://redvelvetfan.github.io/UGAHACKS11-Recycle-Game](https://redvelvetfan.github.io/UGAHACKS11-Recycle-Game)
 
-## 📁 Files Included
+**Repository:** [https://github.com/redvelvetfan/UGAHACKS11-Recycle-Game](https://github.com/redvelvetfan/UGAHACKS11-Recycle-Game)
 
-- `snap-game.html` - Main HTML file
-- `styles.css` - All styling and animations
-- `script.js` - Game logic and interactivity
+##  About
 
-## 🎨 Adding Your Own Images
+Snap! is an educational game where players test their recycling knowledge by determining whether items are recyclable or not. With 10 rounds of gameplay, smooth animations, and instant feedback, players learn about proper recycling practices while having fun!
 
-Right now, the game uses emoji placeholders. To use your own PNG images:
+Built for UGA Hacks 11, this project combines education with entertainment to promote environmental awareness.
 
-### Step 1: Prepare Your Images
-- Create a folder called `images` in the same directory as your HTML file
-- Add your PNG images to this folder
-- Recommended image size: 200x200px or larger (square works best)
+##  Features
 
-### Step 2: Update the JavaScript
+-  **Interactive card-based gameplay** - Cards rise from a magic hat for each round
+-  **Smooth CSS animations** - Card rising, sliding transitions, and visual feedback
+-  **Real-time score tracking** - Track your progress throughout the game
+-  **Win/lose conditions** - Score 7+ correct answers to win
+-  **Instant feedback** - Green checkmarks for correct, red X for incorrect
+-  **Responsive design** - Works seamlessly on desktop and mobile devices
+-  **Educational content** - Learn which common items are recyclable
+-  **10 rounds of challenge** - Test your knowledge across multiple items
 
-In `script.js`, find the `items` array (around line 7) and update it like this:
+##  Technologies Used
+
+- **HTML5** - Game structure and semantic markup
+- **CSS3** - Styling, animations, and responsive design
+- **JavaScript (ES6)** - Game logic, state management, and DOM manipulation
+- **Git/GitHub** - Version control and team collaboration
+- **GitHub Pages** - Free hosting and deployment
+
+##  How to Play
+
+1. Click **"Start Adventure"** on the title screen
+2. A card will rise from the magic hat showing an item
+3. Read the item and decide: Is it recyclable?
+4. Click the **green "Recyclable"** button or the **red "Not Recyclable"** button
+5. See instant feedback with a ✓ (correct) or ✗ (incorrect)
+6. Click the **"SNAP!"** button to reveal the next item
+7. Complete all 10 rounds
+8. **Win by scoring 7 or more correct answers!**
+
+##  Getting Started
+
+### Prerequisites
+- A modern web browser (Chrome, Firefox, Safari, Edge)
+- Git installed on your computer
+- A code editor (VS Code recommended)
+
+### Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/redvelvetfan/UGAHACKS11-Recycle-Game.git
+   ```
+
+2. **Navigate to the project folder**
+   ```bash
+   cd UGAHACKS11-Recycle-Game
+   ```
+
+3. **Open the game**
+   - Simply double-click `index.html` to open in your browser
+   - Or use VS Code Live Server extension for live development
+
+### Running Locally
+
+**Option 1: Direct Open**
+- Double-click `index.html` in your file explorer
+
+**Option 2: VS Code Live Server (Recommended for Development)**
+1. Install the "Live Server" extension in VS Code
+2. Right-click `index.html` in VS Code
+3. Select "Open with Live Server"
+4. Changes will auto-refresh in your browser
+
+##  Project Structure
+
+```
+UGAHACKS11-Recycle-Game/
+├── index.html          # Main HTML file with game structure
+├── styles.css          # All styling, animations, and responsive design
+├── script.js           # Game logic, state management, and interactivity
+├── README.md           # Project documentation (you are here!)
+└── images/             # Game images and visual assets
+    └── [recyclable item images]
+```
+
+##  Customization Guide
+
+### Adding New Recyclable Items
+
+Edit the `items` array in `script.js` (around line 7):
 
 ```javascript
 const items = [
     { name: "Plastic Bottle", image: "images/plastic-bottle.png", recyclable: true },
     { name: "Pizza Box", image: "images/pizza-box.png", recyclable: false },
-    { name: "Aluminum Can", image: "images/aluminum-can.png", recyclable: true },
-    // Add more items...
+    // Add your new items here
 ];
 ```
 
-### Step 3: Update Image Display
+### Changing Game Colors
 
-In `script.js`, find the `showNewCard()` function (around line 87) and change these lines:
+Edit values in `styles.css`:
 
-**FROM:**
+- **Background gradient:** Line 8 (body background)
+- **Play button:** Line 56 (circular-button)
+- **Recyclable button (green):** Line 299
+- **Not recyclable button (red):** Line 304
+- **Card background:** Search for `.card` background
+
+### Adjusting Game Difficulty
+
+**Change win threshold** in `script.js` (around line 198):
 ```javascript
-cardImage.textContent = item.image;
-cardImage.style.fontSize = '8rem';
+const won = score >= 7;  // Change 7 to make it easier/harder
 ```
 
-**TO:**
+**Change number of rounds** (line 4):
 ```javascript
-cardImage.src = item.image;
-cardImage.style.fontSize = '';
+const totalRounds = 10;  // Increase for longer gameplay
 ```
 
-## 🎯 Customizing Game Items
+### Modifying Animations
 
-You can add, remove, or modify items in the `items` array. Each item needs:
-- `name`: Display name (shown on card)
-- `image`: Path to image file or emoji
-- `recyclable`: `true` or `false`
+All animations are in `styles.css`:
 
-Example:
-```javascript
-{ name: "Glass Bottle", image: "images/glass-bottle.png", recyclable: true }
+- **Card rise speed:** `@keyframes cardRise` (line 143)
+- **Card slide speed:** `@keyframes slideLeft/slideRight` (lines 149-160)
+- **Button pulse:** `@keyframes pulse` (line 316)
+
+##  Team Members
+
+- **Treasure A.** - Lead Developer
+- **Ryan F.** - Developer
+- **Eden M.** - Developer
+- **Emma K.** - Developer
+
+##  Contributing
+
+We welcome contributions from the team! Here's how to contribute:
+
+### For Team Members
+
+1. **Pull the latest changes before starting work**
+   ```bash
+   git pull origin main
+   ```
+
+2. **Create a new branch for your feature**
+   ```bash
+   git checkout -b feature/your-feature-name
+   ```
+   Examples: `feature/add-sound-effects`, `feature/new-items`, `feature/improve-animations`
+
+3. **Make your changes**
+   - Edit files in VS Code
+   - Test thoroughly in your browser
+   - Make sure nothing breaks
+
+4. **Commit with a clear, descriptive message**
+   ```bash
+   git add .
+   git commit -m "Add: description of what you changed"
+   ```
+   
+   **Good commit messages:**
+   -  "Add 10 new recyclable items with images"
+   -  "Fix card animation timing issue"
+   -  "Update button colors for better contrast"
+   
+   **Bad commit messages:**
+   -  "updates"
+   -  "fixed stuff"
+   -  "changes"
+
+5. **Push to GitHub**
+   ```bash
+   git push origin feature/your-feature-name
+   ```
+
+6. **Create a Pull Request**
+   - Go to the GitHub repository
+   - Click "Pull Requests" → "New Pull Request"
+   - Select your branch
+   - Describe what you changed and why
+   - Request review from a team member
+
+### Contribution Guidelines
+
+ **DO:**
+- Pull latest changes before starting work (`git pull`)
+- Write clear, descriptive commit messages
+- Test your changes in multiple browsers
+- Comment your code for complex logic
+- Keep code style consistent with existing files
+- Communicate with team about what you're working on
+
+ **DON'T:**
+- Push directly to main without testing
+- Work on the same file as someone else simultaneously
+- Use vague commit messages
+- Break existing functionality
+- Forget to add new image files to the repo
+
+### Avoiding Merge Conflicts
+
+- **Communicate:** Let the team know what files you're editing
+- **Pull often:** Run `git pull` frequently to stay up-to-date
+- **Small commits:** Commit and push smaller changes more frequently
+- **Branch strategy:** Use feature branches, don't all work on main
+
+### If You Get a Merge Conflict
+
+```bash
+# Pull the latest changes
+git pull
+
+# Git will tell you which files have conflicts
+# Open those files in VS Code
+# Look for conflict markers: <<<<<<<, =======, >>>>>>>
+# Choose which version to keep or combine both
+# Remove the conflict markers
+
+# After resolving:
+git add .
+git commit -m "Resolve merge conflict in [filename]"
+git push
 ```
 
-## 🎨 Customizing Colors
+##  Known Issues
 
-To change the color scheme, edit `styles.css`:
+- Animation may lag slightly on older mobile devices
+- Some emojis may render differently across browsers/platforms
+- Card images need to be optimized for faster loading
 
-- **Background gradient**: Line 8 (body background)
-- **Play button**: Line 56 (circular-button background)
-- **Recyclable button**: Line 299 (recyclable class)
-- **Not Recyclable button**: Line 304 (not-recyclable class)
+##  Future Enhancements
 
-## 🚀 Deploying Your Game
+### Planned Features
+- [ ] **Sound effects** - Add audio feedback for correct/incorrect answers
+- [ ] **Difficulty levels** - Easy, Medium, Hard modes with different items
+- [ ] **Expanded item library** - 50+ recyclable items with real images
+- [ ] **Educational facts** - Show recycling tips after each round
+- [ ] **High score system** - Track best scores using localStorage
+- [ ] **Timer mode** - Add time pressure for advanced players
+- [ ] **Multiplayer** - Challenge friends to beat your score
+- [ ] **Achievement system** - Unlock badges for milestones
 
-### Option 1: GitHub Pages (Free)
-1. Create a GitHub account
-2. Create a new repository
-3. Upload all three files
-4. Go to Settings > Pages
-5. Select main branch and save
-6. Your game will be live at `https://yourusername.github.io/repository-name`
+### Potential Improvements
+- [ ] Add loading screen for better UX
+- [ ] Implement progressive web app (PWA) features
+- [ ] Add accessibility features (screen reader support, keyboard navigation)
+- [ ] Multi-language support (Spanish, French, etc.)
+- [ ] Dark mode option
+- [ ] Statistics page showing performance over time
+- [ ] Social sharing features
 
-### Option 2: Netlify (Free)
-1. Create a Netlify account
-2. Drag and drop your folder onto Netlify
-3. Your game goes live instantly
+##  What We Learned
 
-### Option 3: Local Hosting
-Simply open `snap-game.html` in any browser - no server needed!
+### Technical Skills
+- **CSS Animations:** Learned how to create smooth transitions and coordinate timing
+- **JavaScript DOM Manipulation:** Understanding how to dynamically update content
+- **State Management:** Tracking game state across multiple screens
+- **Git Collaboration:** Working as a team using version control
+- **Responsive Design:** Making the game work on different screen sizes
 
-## 🎮 Game Features
+### Challenges Overcome
+- **Animation Timing:** Coordinating CSS animations with JavaScript logic using `setTimeout()`
+- **Language Integration:** Understanding how HTML structure, CSS styling, and JavaScript behavior work together
+- **Git Workflows:** Learning to handle merge conflicts and collaborate effectively
+- **User Experience:** Balancing educational content with engaging gameplay
 
-- ✅ 10 rounds of gameplay
-- ✅ Score tracking
-- ✅ Smooth card animations
-- ✅ Win/lose conditions (7+ correct = win)
-- ✅ Visual feedback (checkmarks and X's)
-- ✅ Responsive design
-- ✅ No external dependencies needed
+## UGA Hacks 11
 
-## 🛠️ Advanced Customization
+This project was created for UGA Hacks 11, demonstrating how technology can be used to educate and promote environmental awareness.
 
-### Change Win Threshold
-In `script.js`, line 198:
-```javascript
-const won = score >= 7;  // Change 7 to any number
-```
+**Theme:** Education & Sustainability  
+**Built in:** [Time period of hackathon]  
+**Category:** Web Development / Education
 
-### Change Number of Rounds
-In `script.js`, line 4:
-```javascript
-const totalRounds = 10;  // Change to any number
-```
+## License
 
-### Add Sound Effects
-Add audio files and update the code:
-```javascript
-const correctSound = new Audio('sounds/correct.mp3');
-correctSound.play();
-```
+This project is open source and available under the MIT License.
 
-## 📝 Tips
+##  Acknowledgments
 
-- Keep image files small (under 500KB) for fast loading
-- Use PNG format with transparent backgrounds for best results
-- Test in multiple browsers (Chrome, Firefox, Safari)
-- The game works on mobile devices too!
+- UGA Hacks 11 organizers for the opportunity
+- Environmental education resources for recycling information
+- The open-source community for inspiration and tools
 
-## 🐛 Troubleshooting
+##  Contact
 
-**Images not showing?**
-- Check that image paths are correct
-- Make sure images are in the same folder or images subfolder
-- Use forward slashes in paths: `images/bottle.png` not `images\bottle.png`
+Have questions, suggestions, or want to contribute?
 
-**Animations not working?**
-- Make sure all three files are in the same folder
-- Try hard-refreshing the browser (Ctrl+F5 or Cmd+Shift+R)
+- **GitHub:** [@redvelvetfan](https://github.com/redvelvetfan)
+- **Repository Issues:** [Report a bug or request a feature](https://github.com/redvelvetfan/UGAHACKS11-Recycle-Game/issues)
 
-**Game not starting?**
-- Open browser console (F12) to check for errors
-- Verify JavaScript is enabled in your browser
+##  Project Stats
 
-## 📧 Need Help?
+- **Lines of Code:** ~500+
+- **Languages:** HTML, CSS, JavaScript
+- **Files:** 4 core files (HTML, CSS, JS, README)
+- **Team Size:** 4 developers
+- **Development Time:** UGA Hacks 11 duration
 
-Feel free to modify any part of the code to match your vision. The code is well-commented to help you understand what each part does!
+---
 
-Good luck with your recycling game! 🌍♻️
+**Made with 💚 for a greener planet | UGA Hacks 11 2026**
+
+*Play. Learn. Recycle. Repeat.* ♻️
