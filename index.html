@@ -7,70 +7,181 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Title Screen -->
-    <div id="title-screen" class="screen active">
+    <!-- Landing Screen (NEW) -->
+    <div id="landing-screen" class="screen active">
+        <div class="stars"></div>
+        <div class="stars2"></div>
+        <div class="stars3"></div>
+        
+        <div class="landing-content">
+            <div class="logo-container">
+                <div class="earth-icon">🌍</div>
+                <h1 class="main-title">SNAP</h1>
+                <p class="subtitle">Save the Planet, One Card at a Time</p>
+            </div>
+            
+            <div class="landing-description">
+                <p>Test your recycling knowledge in this magical card-sorting adventure.</p>
+                <p class="stat-line">✨ 10 Rounds • 🎯 Beat Your Best • ♻️ Learn & Win</p>
+            </div>
+            
+            <button id="start-button" class="magic-button">
+                <span class="button-content">
+                    <span class="icon">🚀</span>
+                    <span class="text">Start Adventure</span>
+                </span>
+                <div class="button-glow"></div>
+            </button>
+            
+            <div class="floating-elements">
+                <div class="float-item" style="--delay: 0s; --x: 10%; --y: 20%;">♻️</div>
+                <div class="float-item" style="--delay: 1s; --x: 85%; --y: 15%;">🌱</div>
+                <div class="float-item" style="--delay: 2s; --x: 15%; --y: 75%;">🌿</div>
+                <div class="float-item" style="--delay: 1.5s; --x: 80%; --y: 70%;">💚</div>
+                <div class="float-item" style="--delay: 0.5s; --x: 50%; --y: 10%;">✨</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Title Screen (How to Play) -->
+    <div id="title-screen" class="screen">
+        <div class="stars"></div>
+        <div class="stars2"></div>
+        
         <div class="title-content">
-            <h1 class="game-title">SNAP</h1>
-            <div class="recycle-logo">♻️</div>
-            <button id="play-button" class="circular-button">PLAY</button>
+            <h2 class="screen-title">How to Play</h2>
+            
+            <div class="instructions-grid">
+                <div class="instruction-card">
+                    <div class="instruction-icon">📋</div>
+                    <h3>1. Read the Card</h3>
+                    <p>An item will appear from the magic hat</p>
+                </div>
+                
+                <div class="instruction-card">
+                    <div class="instruction-icon">🤔</div>
+                    <h3>2. Make a Choice</h3>
+                    <p>Decide if it's recyclable or not</p>
+                </div>
+                
+                <div class="instruction-card">
+                    <div class="instruction-icon">⚡</div>
+                    <h3>3. SNAP!</h3>
+                    <p>Click SNAP to reveal the next item</p>
+                </div>
+                
+                <div class="instruction-card">
+                    <div class="instruction-icon">🏆</div>
+                    <h3>4. Win!</h3>
+                    <p>Get 7 out of 10 correct to win</p>
+                </div>
+            </div>
+            
+            <button id="play-button" class="magic-button">
+                <span class="button-content">
+                    <span class="icon">🎮</span>
+                    <span class="text">Let's Play!</span>
+                </span>
+                <div class="button-glow"></div>
+            </button>
         </div>
     </div>
 
     <!-- Game Screen -->
     <div id="game-screen" class="screen">
+        <div class="stars"></div>
+        <div class="stars2"></div>
+        
         <div class="game-header">
-            <div class="round-display">Round: <span id="current-round">1</span>/10</div>
-            <div class="score-display">Score: <span id="score">0</span></div>
+            <div class="stat-badge">
+                <span class="stat-label">Round</span>
+                <span class="stat-value"><span id="current-round">1</span>/10</span>
+            </div>
+            <div class="stat-badge score-badge">
+                <span class="stat-label">Score</span>
+                <span class="stat-value" id="score">0</span>
+            </div>
         </div>
-
+        
         <div class="game-content">
             <!-- Card Container -->
             <div id="card-container" class="card-container">
                 <div id="card" class="card">
+                    <div class="card-shine"></div>
                     <img id="card-image" src="" alt="Recyclable item">
                     <p id="card-label" class="card-label"></p>
                 </div>
                 
-                <!-- Result overlay (checkmark or X) -->
+                <!-- Result overlay -->
                 <div id="result-overlay" class="result-overlay hidden">
                     <div id="result-icon" class="result-icon"></div>
                 </div>
             </div>
-
+            
             <!-- Choice Buttons -->
             <div id="choice-buttons" class="choice-buttons">
                 <button id="recyclable-btn" class="choice-button recyclable">
-                    ♻️<br>Recyclable
+                    <div class="choice-icon">♻️</div>
+                    <div class="choice-text">Recyclable</div>
+                    <div class="choice-glow"></div>
                 </button>
                 <button id="not-recyclable-btn" class="choice-button not-recyclable">
-                    🚫<br>Not Recyclable
+                    <div class="choice-icon">🚫</div>
+                    <div class="choice-text">Not Recyclable</div>
+                    <div class="choice-glow"></div>
                 </button>
             </div>
-
-            <!-- Snap Button (hidden initially) -->
+            
+            <!-- Snap Button -->
             <div id="snap-button-container" class="snap-button-container hidden">
-                <button id="snap-button" class="circular-button snap-btn">
-                    <span class="snap-icon">👆</span>
-                    <span>SNAP!</span>
+                <button id="snap-button" class="snap-btn">
+                    <span class="snap-content">
+                        <span class="snap-icon">⚡</span>
+                        <span class="snap-text">SNAP!</span>
+                    </span>
+                    <div class="snap-glow"></div>
                 </button>
             </div>
-
-            <!-- Hat at bottom -->
+            
+            <!-- Magic Hat -->
             <div class="hat">
-                <div class="hat-top">🎩</div>
+                <div class="hat-sparkles">✨</div>
+                <div class="hat-body">🎩</div>
             </div>
         </div>
     </div>
 
     <!-- Results Screen -->
     <div id="results-screen" class="screen">
+        <div class="stars"></div>
+        <div class="stars2"></div>
+        <div class="stars3"></div>
+        
         <div class="results-content">
-            <div id="result-face" class="result-face">😊</div>
+            <div class="result-animation">
+                <div id="result-face" class="result-face">😊</div>
+            </div>
+            
             <h2 id="result-title" class="result-title">You Win!</h2>
-            <p id="result-message" class="result-message">
-                You scored <span id="final-score">0</span> out of 10!
-            </p>
-            <button id="play-again-button" class="circular-button">PLAY AGAIN</button>
+            
+            <div class="score-display">
+                <div class="score-label">Final Score</div>
+                <div class="score-number">
+                    <span id="final-score">0</span><span class="score-total">/10</span>
+                </div>
+            </div>
+            
+            <p id="result-message" class="result-message"></p>
+            
+            <div class="results-actions">
+                <button id="play-again-button" class="magic-button">
+                    <span class="button-content">
+                        <span class="icon">🔄</span>
+                        <span class="text">Play Again</span>
+                    </span>
+                    <div class="button-glow"></div>
+                </button>
+            </div>
         </div>
     </div>
 
